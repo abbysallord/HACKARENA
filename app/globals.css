@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+@theme {
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-outfit);
+
+  --color-brand-orange: #ff4500;
+  --color-brand-orange-light: #ff6b35;
+  --color-brand-dark: #000000;
+  --color-brand-gray: #111111;
+  --color-brand-white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Pure white background, pure black text */
+    --background: var(--color-brand-white);
+    --foreground: var(--color-brand-dark);
+  }
+
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #000;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-orange);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 900; /* Black weight for brutalist look */
+    letter-spacing: -0.05em; /* Extremely tight tracking */
+    line-height: 0.9; /* Very tight line height */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 40px rgba(255, 69, 0, 0.6);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px #000;
+    color: transparent;
+  }
+  
+  .text-stroke-white {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+  }
 }
