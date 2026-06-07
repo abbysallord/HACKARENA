@@ -18,7 +18,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hackarena.netlify.app"),
+  metadataBase: new URL("https://www.hackarena.dev"),
   title: {
     default: "HackArena | Premium Digital Product Agency",
     template: "%s | HackArena",
