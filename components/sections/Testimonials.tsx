@@ -14,22 +14,22 @@ const testimonials = [
     img: "/projects/ashwini_maam.jpeg"
   },
   {
-    quote: "The WebGL integration is absolutely flawless.",
+    quote: "Flawless technical execution. The WebGL integrations completely transformed our digital presence.",
     author: "Mark T. — Founder, Voxel",
     img: "/projects/2.jpg"
   },
   {
-    quote: "Minimalist, brutalist, and perfectly executed.",
+    quote: "A masterclass in modern brutalism. They engineered a platform that perfectly captured our brand.",
     author: "Elena R. — Director, DesignCo",
     img: "/projects/3.jpg"
   },
   {
-    quote: "The smoothest scroll animations I've ever seen.",
+    quote: "Incredible attention to detail. The scroll interactions are the smoothest we have ever seen.",
     author: "David L. — CTO, NextGen",
     img: "/projects/1.jpg"
   },
   {
-    quote: "Premium work delivered ahead of schedule.",
+    quote: "Premium engineering delivered ahead of schedule. The final product is simply breathtaking.",
     author: "Anita P. — PM, Innovate",
     img: "/projects/2.jpg"
   }
@@ -83,8 +83,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className="relative h-screen w-full bg-[var(--background)] overflow-hidden flex flex-col justify-center py-20"
     >
       <div className="absolute top-20 w-full text-center z-20 px-6 flex justify-between uppercase font-bold tracking-widest text-[var(--color-brand-orange)] text-sm pointer-events-none">
@@ -95,7 +95,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div 
+      <div
         className="flex w-full items-center py-20 cursor-grab active:cursor-grabbing"
         onMouseEnter={handlePause}
         onMouseLeave={handleResume}
@@ -110,16 +110,16 @@ export default function Testimonials() {
               key={i}
               className="group w-[85vw] md:w-[800px] flex flex-col flex-shrink-0 mx-6 md:mx-16 cursor-default"
             >
-              <h3 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-[var(--foreground)] mb-10 leading-[1.2] tracking-tighter text-balance transition-colors duration-500 group-hover:text-black">
+              <h3 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-[var(--foreground)] mb-10 leading-[1.1] tracking-tighter text-balance transition-colors duration-500 group-hover:text-black">
                 "{t.quote}"
               </h3>
-              
+
               <div className="flex items-center gap-6 mt-auto">
                 <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0 border border-black/10 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                  <Image 
-                    src={t.img} 
-                    alt={t.author} 
-                    fill 
+                  <Image
+                    src={t.img}
+                    alt={t.author}
+                    fill
                     className="object-cover"
                     sizes="96px"
                     quality={100}
