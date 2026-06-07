@@ -23,7 +23,16 @@ export default function DockNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const isAtTop = window.scrollY <= 50;
+      
+      // Use getBoundingClientRect to get the absolute distance of the document bottom relative to the viewport.
+      // When the user is at the bottom of the page, the bottom of the document will equal the window.innerHeight.
+      // A 100px buffer handles any GSAP pinning or mobile browser UI height changes securely.
+      const bodyBottom = document.documentElement.getBoundingClientRect().bottom;
+      const isAtBottom = bodyBottom <= window.innerHeight + 100;
+      
+      // The dock is "scrolled" (collapsed) only when it's NOT at the top AND NOT at the bottom
+      setIsScrolled(!isAtTop && !isAtBottom);
     };
     
     // Initial check on mount
