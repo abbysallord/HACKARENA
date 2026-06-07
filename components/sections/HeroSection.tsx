@@ -56,10 +56,10 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Massive Background Typography - Pushed up with -mt-24 */}
+      {/* Massive Background Typography - Pushed up with negative margin */}
       <div 
         ref={textRef} 
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 w-full h-full pointer-events-none z-10 -mt-24"
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 w-full h-full pointer-events-none z-10 -mt-24 md:-mt-32"
       >
         <h1 className="text-[15vw] leading-[0.8] font-heading font-black uppercase tracking-tighter text-black w-full break-words">
           HACK<br/>ARENA
@@ -67,7 +67,7 @@ export default function HeroSection() {
       </div>
 
       {/* Foreground CTA */}
-      <div className="absolute bottom-24 md:bottom-32 z-20 flex flex-col items-center w-full px-6">
+      <div className="absolute bottom-20 md:bottom-24 lg:bottom-28 z-20 flex flex-col items-center w-full px-6">
         <p className="text-lg md:text-xl font-bold mb-6 text-black/70 max-w-lg text-center bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-black/5">
           Engineering cinematic digital platforms for elite brands.
         </p>
