@@ -101,6 +101,7 @@ export default function TeamsPage() {
                     alt={member.name} 
                     fill 
                     unoptimized={true}
+                    quality={100}
                     sizes="(max-width: 1536px) 150px, 180px"
                     className="object-cover object-center scale-150 group-hover:scale-100 group-data-[active=true]:scale-100 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] grayscale group-hover:grayscale-0 group-data-[active=true]:grayscale-0"
                   />

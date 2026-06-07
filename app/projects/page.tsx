@@ -74,6 +74,8 @@ export default function ProjectsPage() {
             width={800} 
             height={800} 
             className="w-[80vw] max-w-[800px] object-contain"
+            unoptimized={true}
+            quality={100}
             priority
           />
         </div>

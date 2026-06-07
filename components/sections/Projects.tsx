@@ -107,6 +107,7 @@ export default function Projects() {
                 alt={p.title}
                 fill
                 unoptimized={true}
+                quality={100}
                 sizes="100vw"
                 className="object-cover object-center"
                 priority={i === 0}

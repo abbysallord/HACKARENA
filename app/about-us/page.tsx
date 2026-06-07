@@ -131,6 +131,8 @@ export default function AboutUs() {
             alt="Engineering Realities" 
             fill 
             className="object-cover object-center"
+            unoptimized={true}
+            quality={100}
             priority
           />
           {/* Brutalist Gradient Overlay */}

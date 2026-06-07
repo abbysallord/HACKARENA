@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    quote: "They didn't just build a website; they engineered an experience.",
-    author: "Sarah J. — CEO, TechFlow",
-    img: "/projects/1.jpg"
+    quote: "Exceptional quality and efficiency. The user experience exceeded all expectations.",
+    author: "Dr. Ashwini Shetty N — Director of outreach and NSS, Yenepoya",
+    img: "/projects/ashwini_maam.jpeg"
   },
   {
     quote: "The WebGL integration is absolutely flawless.",
@@ -108,23 +108,25 @@ export default function Testimonials() {
           {[...testimonials, ...testimonials].map((t, i) => (
             <div
               key={i}
-              className="w-[85vw] md:w-[800px] flex flex-col flex-shrink-0 mx-6 md:mx-16"
+              className="group w-[85vw] md:w-[800px] flex flex-col flex-shrink-0 mx-6 md:mx-16 cursor-default"
             >
-              <h3 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-[var(--foreground)] mb-10 leading-[1.1] tracking-tighter">
+              <h3 className="text-2xl md:text-4xl lg:text-5xl font-heading font-black text-[var(--foreground)] mb-10 leading-[1.2] tracking-tighter text-balance transition-colors duration-500 group-hover:text-black">
                 "{t.quote}"
               </h3>
               
               <div className="flex items-center gap-6 mt-auto">
-                <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shrink-0 border border-black/10 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shrink-0 border border-black/10 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
                   <Image 
                     src={t.img} 
                     alt={t.author} 
                     fill 
                     className="object-cover"
-                    sizes="64px"
+                    sizes="96px"
+                    quality={100}
+                    unoptimized={true}
                   />
                 </div>
-                <span className="text-[var(--foreground)]/50 font-bold uppercase tracking-widest text-xs md:text-sm">
+                <span className="text-[var(--foreground)]/50 font-bold uppercase tracking-widest text-[10px] md:text-xs group-hover:text-[var(--color-brand-orange)] transition-colors duration-500">
                   {t.author}
                 </span>
               </div>
