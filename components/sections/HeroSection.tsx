@@ -112,6 +112,7 @@ export default function HeroSection() {
           Engineering cinematic digital platforms for elite brands.
         </p>
         <button 
+          onClick={() => document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' })}
           className="group relative overflow-hidden bg-black text-white px-10 py-5 rounded-full text-lg font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.2)] will-change-transform"
         >
           <span className="relative z-10 pointer-events-none">Start a Project</span>

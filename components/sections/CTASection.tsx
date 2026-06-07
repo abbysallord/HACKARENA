@@ -22,7 +22,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className="py-32 px-6 bg-[var(--background)]">
+    <section id="cta-form" className="py-32 px-6 bg-[var(--background)]">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-5xl md:text-7xl font-heading font-bold text-[var(--foreground)] mb-8">
           Ready to <span className="text-[var(--color-brand-orange)]">Upgrade?</span>
