@@ -48,6 +48,7 @@ export default function DockNav() {
             alt="HackArena" 
             fill 
             sizes="32px"
+            unoptimized={true}
             className="object-contain"
           />
         </Link>

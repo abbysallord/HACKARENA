@@ -12,6 +12,7 @@ export default function Footer() {
               alt="Hack Arena" 
               width={200} 
               height={50} 
+              unoptimized={true}
               className="h-8 md:h-10 w-auto object-contain mb-4 opacity-90 hover:opacity-100 transition-opacity" 
             />
           </Link>
