@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const text = "IF YOUR DIGITAL PRESENCE ISN'T A WEAPON, IT'S A LIABILITY.";
-const attribution = "— K. RENZ, UNKNOWN ARCHITECT";
+const attribution = "— UNKNOWN ARCHITECT";
 
 export default function Manifesto() {
   const containerRef = useRef<HTMLElement>(null);
