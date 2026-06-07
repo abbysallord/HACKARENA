@@ -80,7 +80,7 @@ export default function Services() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <div
               key={i}

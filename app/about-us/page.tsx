@@ -138,7 +138,7 @@ export default function AboutUs() {
         </div>
         
         <div className="relative z-10 w-full overflow-hidden pb-12 md:pb-24 px-4 -mx-4">
-          <h1 ref={heroTextRef} className="text-6xl md:text-[10vw] font-heading font-black uppercase tracking-tighter leading-[0.85] text-[var(--foreground)] drop-shadow-2xl pb-6">
+          <h1 ref={heroTextRef} className="text-5xl min-[400px]:text-6xl md:text-[10vw] font-heading font-black uppercase tracking-tighter leading-[0.85] text-[var(--foreground)] drop-shadow-2xl pb-6">
             WE ENGINEER<br/>
             <span className="text-[var(--color-brand-orange)]">REALITIES.</span>
           </h1>
@@ -164,7 +164,7 @@ export default function AboutUs() {
       {/* 3. Brutalist Value Grid */}
       <section className="py-32 px-6 md:px-12 border-t border-[var(--foreground)]/10">
         <div className="max-w-7xl mx-auto" ref={gridRef}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {coreValues.map((value) => (
               <div 
                 key={value.id}
