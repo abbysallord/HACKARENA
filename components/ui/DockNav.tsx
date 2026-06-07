@@ -36,8 +36,8 @@ export default function DockNav() {
       <nav
         ref={dockRef}
         className={cn(
-          "glass-panel flex items-center justify-center rounded-full p-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          scrolled ? "gap-2 scale-90" : "gap-4 scale-100"
+          "glass-panel flex items-center justify-center rounded-full p-1 md:p-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          scrolled ? "gap-0.5 md:gap-2 scale-[0.85] md:scale-90" : "gap-1 md:gap-4 scale-100"
         )}
       >
         {navItems.map((item) => {
@@ -48,7 +48,7 @@ export default function DockNav() {
               href={item.href}
               className={cn(
                 "group relative flex items-center justify-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden",
-                scrolled ? "h-10 px-3" : "h-12 px-5", // Pure padding interpolation, no fixed widths that snap to auto
+                scrolled ? "h-8 px-2 md:h-10 md:px-3" : "h-9 px-2.5 md:h-12 md:px-5",
                 isActive
                   ? "bg-[var(--color-brand-orange)] text-white"
                   : "text-black/70 hover:bg-black/10 hover:text-black"
@@ -57,13 +57,13 @@ export default function DockNav() {
               <item.icon
                 className={cn(
                   "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0",
-                  scrolled ? "h-5 w-5" : "h-4 w-4"
+                  scrolled ? "h-3.5 w-3.5 md:h-5 md:w-5" : "h-3 w-3 md:h-4 md:w-4"
                 )}
               />
               <span
                 className={cn(
-                  "font-medium text-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap",
-                  scrolled ? "max-w-0 opacity-0 ml-0" : "max-w-[100px] opacity-100 ml-2"
+                  "font-medium text-[10px] md:text-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap mt-0.5 md:mt-0",
+                  scrolled ? "max-w-0 opacity-0 ml-0" : "max-w-[45px] md:max-w-[100px] opacity-100 ml-1.5 md:ml-2"
                 )}
               >
                 {item.name}
