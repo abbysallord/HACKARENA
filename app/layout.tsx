@@ -18,8 +18,37 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "HackArena | Premium Web Agency",
-  description: "High-performance, mobile-first web agency landing page.",
+  metadataBase: new URL("https://hackarena.netlify.app"),
+  title: {
+    default: "HackArena | Premium Digital Product Agency",
+    template: "%s | HackArena",
+  },
+  description: "Engineering cinematic digital platforms and immersive WebGL experiences for elite brands. We don't just build websites; we architect brutalist digital reality.",
+  keywords: ["Web Design", "Digital Agency", "WebGL", "Next.js Portfolio", "Creative Engineering", "Frontend Development", "Brutalist Design", "HackArena", "web solutions for startups", "web solutions", "web development"],
+  authors: [{ name: "HackArena Core Team" }],
+  creator: "HackArena",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "HackArena | Engineering Cinematic Digital Platforms",
+    description: "High-performance, mobile-first web agency platforms. Experience brutalist digital architecture.",
+    siteName: "HackArena",
+    images: [
+      {
+        url: "/projects/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "HackArena - Digital Product Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HackArena | Digital Product Agency",
+    description: "Engineering cinematic digital platforms for elite brands.",
+    images: ["/projects/og-image.jpeg"],
+  },
 };
 
 export default function RootLayout({
