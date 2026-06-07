@@ -67,7 +67,7 @@ export default function HeroSection() {
       </div>
 
       {/* Foreground CTA */}
-      <div className="absolute bottom-20 md:bottom-24 lg:bottom-28 z-20 flex flex-col items-center w-full px-6">
+      <div className="absolute bottom-32 md:bottom-36 lg:bottom-40 z-20 flex flex-col items-center w-full px-6">
         <p className="text-lg md:text-xl font-bold mb-6 text-black/70 max-w-lg text-center bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-black/5">
           Engineering cinematic digital platforms for elite brands.
         </p>
