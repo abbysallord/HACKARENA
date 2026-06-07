@@ -47,6 +47,7 @@ export default function DockNav() {
             src="/projects/logo.png" 
             alt="HackArena" 
             fill 
+            sizes="32px"
             className="object-contain"
           />
         </Link>
