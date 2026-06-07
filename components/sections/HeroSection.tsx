@@ -101,13 +101,13 @@ export default function HeroSection() {
         ref={textRef}
         className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 w-full h-full pointer-events-none z-10 -mt-24 md:-mt-32 will-change-transform"
       >
-        <h1 className="text-[15vw] leading-[0.8] font-heading font-black uppercase tracking-tighter text-black w-full break-words">
+        <h1 className="text-[18vw] md:text-[15vw] leading-[0.8] font-heading font-black uppercase tracking-tighter text-black w-full break-words">
           HACK<br />ARENA
         </h1>
       </div>
 
       {/* Foreground CTA */}
-      <div className="absolute bottom-36 md:bottom-40 lg:bottom-44 z-20 flex flex-col items-center w-full px-4 sm:px-6 pointer-events-auto">
+      <div className="absolute bottom-48 md:bottom-40 lg:bottom-44 z-20 flex flex-col items-center w-full px-4 sm:px-6 pointer-events-auto">
         <p className="text-[10px] sm:text-xs md:text-xl font-bold mb-3 md:mb-6 text-black/70 max-w-[280px] md:max-w-lg text-center bg-white/80 backdrop-blur-sm px-4 py-2 md:px-6 md:py-3 rounded-full border border-black/5 pointer-events-none">
           Engineering cinematic digital platforms for elite brands.
         </p>
