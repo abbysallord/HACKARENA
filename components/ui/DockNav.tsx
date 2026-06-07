@@ -18,27 +18,36 @@ const navItems = [
 export default function DockNav() {
   const dockRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    // Initial check on mount
+    handleScroll();
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // The dock is visually collapsed only when the page is scrolled past 50px AND the user is not actively hovering it.
+  // This decoupling prevents trackpad inertia scroll events from fighting the mouse hover state.
+  const collapsed = isScrolled && !isHovered;
 
   return (
     <div
       className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 p-4" // Generous invisible hitbox to prevent edge-hover flicker
-      onMouseEnter={() => setScrolled(false)}
-      onMouseLeave={() => setScrolled(window.scrollY > 50)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <nav
         ref={dockRef}
         className={cn(
           "glass-panel flex items-center justify-center rounded-full p-1 md:p-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          scrolled ? "gap-1 md:gap-2 scale-100" : "gap-0.5 sm:gap-1 md:gap-4 scale-100"
+          collapsed ? "gap-1 md:gap-2 scale-100" : "gap-0.5 sm:gap-1 md:gap-4 scale-100"
         )}
       >
         {/* Brand Logo inside Dock */}
@@ -62,7 +71,7 @@ export default function DockNav() {
               href={item.href}
               className={cn(
                 "group relative flex items-center justify-center rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden",
-                scrolled ? "h-8 px-2 sm:h-9 sm:px-3 md:h-12 md:px-4" : "h-8 px-1.5 sm:h-9 sm:px-2.5 md:h-12 md:px-5",
+                collapsed ? "h-8 px-2 sm:h-9 sm:px-3 md:h-12 md:px-4" : "h-8 px-1.5 sm:h-9 sm:px-2.5 md:h-12 md:px-5",
                 isActive
                   ? "bg-[var(--color-brand-orange)] text-white"
                   : "text-black/70 hover:bg-black/10 hover:text-black"
@@ -71,13 +80,13 @@ export default function DockNav() {
               <item.icon
                 className={cn(
                   "transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0",
-                  scrolled ? "h-4 w-4 md:h-6 md:w-6" : "h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
+                  collapsed ? "h-4 w-4 md:h-6 md:w-6" : "h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
                 )}
               />
               <span
                 className={cn(
                   "font-medium text-[9px] sm:text-[10px] md:text-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap mt-0.5 md:mt-0",
-                  scrolled ? "max-w-0 opacity-0 ml-0" : "max-w-[40px] sm:max-w-[45px] md:max-w-[100px] opacity-100 ml-1 sm:ml-1.5 md:ml-2"
+                  collapsed ? "max-w-0 opacity-0 ml-0" : "max-w-[40px] sm:max-w-[45px] md:max-w-[100px] opacity-100 ml-1 sm:ml-1.5 md:ml-2"
                 )}
               >
                 {item.name}
