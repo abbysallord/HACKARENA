@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { Home, Info, Folder, Users } from "lucide-react";
@@ -40,6 +41,17 @@ export default function DockNav() {
           scrolled ? "gap-0.5 md:gap-2 scale-[0.85] md:scale-90" : "gap-1 md:gap-4 scale-100"
         )}
       >
+        {/* Brand Logo inside Dock */}
+        <Link href="/" className="relative flex items-center justify-center shrink-0 w-6 h-6 md:w-8 md:h-8 ml-2 md:ml-3 mr-1 md:mr-2">
+          <Image 
+            src="/projects/logo.png" 
+            alt="HackArena" 
+            fill 
+            className="object-contain"
+          />
+        </Link>
+        <div className="w-[1px] h-6 md:h-8 bg-black/10 mr-0.5 md:mr-2 shrink-0" /> {/* Divider */}
+
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 export default function ProjectsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -60,12 +61,22 @@ export default function ProjectsPage() {
   return (
     <main ref={containerRef} className="relative min-h-screen bg-[var(--background)] flex flex-col items-center justify-center overflow-hidden px-6">
       
-      {/* Ambient Glow Layer */}
+      {/* Ambient Glow & Watermark Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden flex items-center justify-center pointer-events-none">
         <div 
           ref={orbRef}
-          className="w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--color-brand-orange)] opacity-5 blur-[100px] will-change-transform" 
+          className="absolute w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--color-brand-orange)] opacity-5 blur-[100px] will-change-transform" 
         />
+        <div className="absolute opacity-5 lg:opacity-10 grayscale">
+          <Image 
+            src="/projects/logo.png" 
+            alt="HackArena Watermark" 
+            width={800} 
+            height={800} 
+            className="w-[80vw] max-w-[800px] object-contain"
+            priority
+          />
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center">

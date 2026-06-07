@@ -1,14 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="pt-12 pb-28 lg:pb-12 px-6 border-t border-black/5 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-2xl font-heading font-bold text-[var(--foreground)] tracking-widest uppercase">
-            Hack Arena
-          </h2>
-          <p className="text-[var(--foreground)]/50 text-sm mt-2">
+          <Link href="/">
+            <Image 
+              src="/projects/logo.png" 
+              alt="Hack Arena" 
+              width={200} 
+              height={50} 
+              className="h-8 md:h-10 w-auto object-contain mb-4 opacity-90 hover:opacity-100 transition-opacity" 
+            />
+          </Link>
+          <p className="text-[var(--foreground)]/50 text-sm">
             © {new Date().getFullYear()} Hack Arena. All rights reserved.
           </p>
         </div>
