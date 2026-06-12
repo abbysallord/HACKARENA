@@ -10,6 +10,16 @@ import CTASection from "@/components/sections/CTASection";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "HackArena | Premium Digital Product Agency",
+  description: "Engineering cinematic digital platforms and immersive WebGL experiences for elite brands.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <>

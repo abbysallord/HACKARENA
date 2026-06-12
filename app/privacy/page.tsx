@@ -1,3 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Read HackArena's privacy policy to understand how we collect, use, and protect your data.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen pt-32 px-6 pb-20 flex flex-col items-center bg-[var(--background)]">

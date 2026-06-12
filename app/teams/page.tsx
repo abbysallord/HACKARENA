@@ -13,6 +13,16 @@ const team = [
   { id: "03", name: "Dinesh A", role: "Performance Architect", image: "/projects/dinesh.jpeg", link: "https://dinesha.tech/" }
 ];
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Teams",
+  description: "Meet the engineers, architects, and designers of HackArena who build your digital reality.",
+  alternates: {
+    canonical: "/teams",
+  },
+};
+
 export default function TeamsPage() {
   const containerRef = useRef<HTMLElement>(null);
   const heroTextRef = useRef<HTMLHeadingElement>(null);

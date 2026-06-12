@@ -1,3 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Review the terms of service and conditions for using HackArena's website and digital services.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
+
 export default function TermsPage() {
   return (
     <main className="min-h-screen pt-32 px-6 pb-20 flex flex-col items-center bg-[var(--background)]">
