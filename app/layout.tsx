@@ -61,6 +61,19 @@ export default function RootLayout({
       <body className="antialiased min-h-screen bg-[var(--background)] text-[var(--foreground)]">
         <SmoothScroll>
           <NoiseOverlay />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "HackArena",
+                url: "https://www.hackarena.dev",
+                logo: "https://www.hackarena.dev/icon.png",
+                description: "Engineering cinematic digital platforms and immersive WebGL experiences for elite brands.",
+              }),
+            }}
+          />
           {children}
           <Footer />
           <DockNav />
