@@ -30,7 +30,7 @@ export default function CTASection() {
 
     try {
       // Send data to n8n Webhook
-      await fetch("http://hackarena-n8n.koreacentral.cloudapp.azure.com:5678/webhook/demo-webhook", {
+      await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
