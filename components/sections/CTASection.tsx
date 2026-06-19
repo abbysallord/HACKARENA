@@ -10,6 +10,43 @@ const serviceOptions = ["Web Platform", "WebGL / 3D", "Brand Identity", "E-Comme
 export default function CTASection() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Store the form reference synchronously! 
+    // e.currentTarget becomes null after the asynchronous await call.
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      details: formData.get("details"),
+      services: selectedServices,
+    };
+
+    try {
+      // Send data to n8n Webhook
+      await fetch("http://localhost:5678/webhook/demo-webhook", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      setIsSuccess(true);
+      form.reset();
+      setSelectedServices([]);
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Form submission error", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const toggleForm = () => {
     setIsOpen(!isOpen);
@@ -72,7 +109,7 @@ export default function CTASection() {
                 Initiate<span className="text-[var(--color-brand-orange)] animate-pulse">_</span>
               </h3>
               
-              <form className="flex flex-col gap-10" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
                 
                 {/* Interactive Service Selector */}
                 <div className="space-y-4">
@@ -104,12 +141,16 @@ export default function CTASection() {
                 <div className="flex flex-col md:flex-row gap-10">
                   <input 
                     type="text" 
+                    name="name"
+                    required
                     placeholder="YOUR NAME" 
                     maxLength={50}
                     className="flex-1 bg-transparent border-b-2 border-white/20 py-4 text-xl font-bold placeholder-white/30 focus:outline-none focus:border-[var(--color-brand-orange)] transition-colors rounded-none"
                   />
                   <input 
                     type="email" 
+                    name="email"
+                    required
                     placeholder="EMAIL ADDRESS" 
                     maxLength={100}
                     className="flex-1 bg-transparent border-b-2 border-white/20 py-4 text-xl font-bold placeholder-white/30 focus:outline-none focus:border-[var(--color-brand-orange)] transition-colors rounded-none"
@@ -117,6 +158,8 @@ export default function CTASection() {
                 </div>
                 
                 <textarea 
+                  name="details"
+                  required
                   placeholder="PROJECT DETAILS" 
                   rows={3}
                   maxLength={500}
@@ -124,9 +167,17 @@ export default function CTASection() {
                 ></textarea>
                 
                 <button 
-                  className="mt-8 group w-full flex items-center justify-center gap-3 bg-white text-black font-heading font-black uppercase tracking-widest py-6 rounded-full hover:bg-[var(--color-brand-orange)] hover:text-white transition-all duration-300 shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,69,0,0.3)] hover:scale-[1.02]"
+                  disabled={isSubmitting || isSuccess}
+                  className={cn(
+                    "mt-8 group w-full flex items-center justify-center gap-3 font-heading font-black uppercase tracking-widest py-6 rounded-full transition-all duration-300 shadow-[0_10px_30px_rgba(255,255,255,0.1)]",
+                    isSuccess 
+                      ? "bg-green-500 text-white" 
+                      : "bg-white text-black hover:bg-[var(--color-brand-orange)] hover:text-white hover:shadow-[0_20px_50px_rgba(255,69,0,0.3)] hover:scale-[1.02]"
+                  )}
                 >
-                  Send Inquiry <Send className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  {isSubmitting ? "Sending..." : isSuccess ? "Inquiry Sent!" : (
+                    <>Send Inquiry <Send className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></>
+                  )}
                 </button>
               </form>
             </div>
