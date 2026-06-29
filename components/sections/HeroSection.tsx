@@ -7,6 +7,7 @@ export default function HeroSection() {
   const textRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -69,6 +70,15 @@ export default function HeroSection() {
           ease: "power2.out",
         });
       }
+
+      // 3. Parallax pan on the blueprint grid
+      if (gridRef.current) {
+        gsap.to(gridRef.current, {
+          backgroundPosition: `${50 - (x * 2)}% ${50 - (y * 2)}%`,
+          duration: 2,
+          ease: "power2.out",
+        });
+      }
     };
 
     // Only attach mouse tracking if the device has a physical cursor (Desktop)
@@ -95,6 +105,19 @@ export default function HeroSection() {
           className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full bg-[var(--color-brand-orange)] opacity-10 blur-[120px] will-change-transform"
         />
       </div>
+
+      {/* Architectural Blueprint Grid */}
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 26v8m-4-4h8' stroke='%23000' stroke-width='1.5' stroke-linecap='round' fill='none' /%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px',
+          backgroundPosition: '50% 50%',
+          maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, #000 20%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, #000 20%, transparent 100%)'
+        }}
+      />
 
       {/* Massive Background Typography */}
       <div
