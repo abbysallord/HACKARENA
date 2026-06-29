@@ -108,9 +108,6 @@ export default function HeroSection() {
 
       {/* Foreground CTA */}
       <div className="absolute bottom-48 md:bottom-40 lg:bottom-44 z-20 flex flex-col items-center w-full px-4 sm:px-6 pointer-events-auto">
-        <p className="text-[10px] sm:text-xs md:text-xl font-bold mb-3 md:mb-6 text-black/70 max-w-[280px] md:max-w-lg text-center bg-white/80 backdrop-blur-sm px-4 py-2 md:px-6 md:py-3 rounded-full border border-black/5 pointer-events-none">
-          Engineering cinematic digital platforms for elite brands.
-        </p>
         <button
           onClick={() => document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' })}
           className="group relative overflow-hidden bg-black text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-[10px] sm:text-xs md:text-lg font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.2)] will-change-transform"
